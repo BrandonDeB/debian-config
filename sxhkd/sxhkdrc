@@ -22,6 +22,10 @@ super + Escape
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
+# screen capture
+Print
+	flameshot gui
+
 # close and kill
 super + {_,shift + }w
 	bspc node -{c,k}
@@ -119,3 +123,19 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# laptop function keys
+#
+
+# raise and lower brightness
+XF86MonBrightness{Up,Down}
+	brightnessctl s 10{+,-}
+
+# raise and lower volume
+XF86Audio{Raise,Lower}Volume
+	amixer -q sset Master 5%{+,-}
+
+# mute toggle
+XF86AudioMute
+	amixer -q sset Master toggle

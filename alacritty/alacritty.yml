@@ -5,7 +5,7 @@ cursor:
       blink-interval: 750
 
 # Colors (Gruvbox Material Medium Dark)
-
+working_directory: ~
 # Default colors
 colors:
    primary:

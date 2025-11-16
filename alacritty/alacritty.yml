@@ -29,4 +29,5 @@ colors:
       magenta: "#d3869b"
       cyan: "#89b482"
       white: "#d4be98"
-
+font:
+  size: 16.0

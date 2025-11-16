@@ -9,7 +9,7 @@ spec("plugin.harpoon")
 spec("plugin.undotree")
 spec("plugin.lsp-zero")
 spec("plugin.mason")
-spec("plugin.gen")
+spec("plugin.dap")
 
 require "plugin.lazy"
 require "keymaps"

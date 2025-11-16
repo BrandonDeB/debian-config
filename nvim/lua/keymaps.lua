@@ -37,6 +37,17 @@ vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references)
 vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename)
 
--- gen keymaps
+-- nvim dap && dap ui
 
-vim.keymap.set('v', '<leader>ia', ':Gen<CR>')
+vim.keymap.set("n", "<F5>", function() require("dap").continue() end)
+vim.keymap.set("n", "<F10>", function() require("dap").step_over() end)
+vim.keymap.set("n", "<F11>", function() require("dap").step_into() end)
+vim.keymap.set("n", "<F12>", function() require("dap").step_out() end)
+
+vim.keymap.set("n", "<leader>b", function() require("dap").toggle_breakpoint() end)
+vim.keymap.set("n", "<leader>B", function()
+  require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end)
+
+vim.keymap.set("n", "<leader>dr", function() require("dap").repl.open() end)
+vim.keymap.set("n", "<leader>du", function() require("dapui").toggle() end)

@@ -1,6 +1,7 @@
 [Default Applications]
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 application/pdf=firefox-esr.desktop
+x-scheme-handler/postman=Postman.desktop
 
 [Added Associations]
 application/pdf=firefox-esr.desktop;

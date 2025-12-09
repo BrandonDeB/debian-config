@@ -1,5 +1,10 @@
-JetBrains/
-pulse/
-autostart/
-spotify/
-Postman/
+*
+
+!.gitignore
+!nvim/
+!alacritty/
+!bspwm/
+!sxhkd/
+!picom/
+!spicetify/
+!rofi/

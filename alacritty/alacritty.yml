@@ -36,3 +36,6 @@ font:
   normal:
     family: "Liberation Mono"
   size: 16.0
+
+key_bindings:
+  - { key: Delete, mods: Shift, action: ScrollToBottom }

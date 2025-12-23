@@ -24,16 +24,16 @@ configuration {
     scrollbar: true;
 
     /* Gruvbox dark colors */
-    gruvbox-dark-bg0-soft:     #282828;
-    gruvbox-dark-bg1:          #3c3836;
-    gruvbox-dark-bg3:          #665c54;
-    gruvbox-dark-fg0:          #fbf1c7;
-    gruvbox-dark-fg1:          #ebdbb2;
-    gruvbox-dark-red-dark:     #cc241d;
-    gruvbox-dark-red-light:    #fb4934;
-    gruvbox-dark-yellow-dark:  #d79921;
-    gruvbox-dark-yellow-light: #fabd2f;
-    gruvbox-dark-gray:         #a89984;
+    gruvbox-dark-bg0-soft:     #0d0c0b;
+    gruvbox-dark-bg1:          #141211;
+    gruvbox-dark-bg3:          #2c2a26;
+    gruvbox-dark-fg0:          #dcdcdc;
+    gruvbox-dark-fg1:          #f7f7f7;
+    gruvbox-dark-red-dark:     #e65a5a;
+    gruvbox-dark-red-light:    #e68c8c;
+    gruvbox-dark-yellow-dark:  #e6b55a;
+    gruvbox-dark-yellow-light: #e6c88c;
+    gruvbox-dark-gray:         #373737;
 
     /* Theme colors */
     background:                  @gruvbox-dark-bg0-soft;

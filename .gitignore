@@ -1,10 +1,10 @@
 *
 
 !.gitignore
-!nvim/
-!alacritty/
-!bspwm/
-!sxhkd/
-!picom/
-!spicetify/
-!rofi/
+!nvim/*
+!alacritty/*
+!bspwm/*
+!sxhkd/*
+!picom/*
+!spicetify/*
+!rofi/*

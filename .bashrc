@@ -82,6 +82,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias egrep='egrep --color=auto'
 fi
 
+export LS_COLORS="$LS_COLORS:ow=01;34:tw=01;34"
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -111,9 +112,53 @@ fi
 
 export PATH=$PATH:/snap/bin
 export PATH=$PATH:/opt/anaconda3
-export PATH=$PATH:/home/brandon/.spicetify
-. "$HOME/.cargo/env"
+export PATH=$PATH:$HOME/.spicetify
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 export ANDROID_HOME=$HOME/Android/Sdk
+export NEXT_TELEMETRY_DISABLED=1
+
+export CONDA_HOME="/opt/anaconda3"
+
+__conda_loaded=0
+
+__load_conda() {
+    if [ $__conda_loaded -eq 0 ]; then
+# . "$CONDA_HOME/etc/profile.d/conda.sh"  # commented out by conda initialize
+        conda activate ClearJet >/dev/null 2>&1
+        __conda_loaded=1
+    fi
+}
+
+python() {
+    __load_conda
+    command python "$@"
+}
+
+nvim() {
+   __load_conda
+   command nvim "$@"
+}
+
+pip() {
+    __load_conda
+    command pip "$@"
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -d "$NVM_DIR/versions/node" ] && export PATH="$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node | grep ^v22 | sort -V | tail -1)/bin:$PATH"
+
+nvm() {
+    unset -f nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    nvm "$@"
+}
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Point glab at the systemd user dbus where gnome-keyring is registered;
+# the default DBUS_SESSION_BUS_ADDRESS points at a separate bus with no
+# secret service, which makes glab hang on every invocation.
+alias glab='DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus glab'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -128,10 +173,5 @@ else
     fi
 fi
 unset __conda_setup
+conda activate ClearJet
 # <<< conda initialize <<<
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="$HOME/.local/bin:$PATH"
